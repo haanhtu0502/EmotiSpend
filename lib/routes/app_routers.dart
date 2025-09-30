@@ -1,3 +1,4 @@
+import 'package:emoti_spend/mvvm/view/splash/splash_screen.dart';
 import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       parentNavigatorKey: appNavigationKey,
       path: AppPages.splash,
-      builder: (context, state) => const Placeholder(),
+      builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
       parentNavigatorKey: appNavigationKey,

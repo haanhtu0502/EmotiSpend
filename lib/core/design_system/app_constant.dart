@@ -1,3 +1,3 @@
 class AppConstant {
-  static String appName = "SpentiMood";
+  static String appName = "EmotiSpend";
 }

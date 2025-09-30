@@ -14,3 +14,12 @@ const ColorScheme lightColorScheme = ColorScheme.light(
   surface: Colors.white,
   onSurface: Color(0xFF111827), // Xám đậm cho text chính
 );
+
+const jarColors = [
+  Color(0xFF22C55E), // Xanh lá
+  Color(0xFFFACC15), // Vàng
+  Color(0xFF3B82F6), // Xanh dương
+  Color(0xFFA855F7), // Tím
+  Color(0xFFEC4899), // Hồng
+  Color(0xFFF43F5E), // Đỏ
+];
