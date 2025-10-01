@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   "Chi tiêu thông minh, cảm xúc tích cực",
                   style: AppTextStyles.titleLarge.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: BuildButton(
                     onPressed: _onLogin,
-                    radius: 12,
+                    radius: 15,
                     padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     content: Center(
                       child: Text(
@@ -254,8 +254,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 "Ghi nhớ đăng nhập",
                 style: AppTextStyles.titleLarge.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).colorScheme.onBackground,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const Spacer(),
