@@ -166,4 +166,17 @@ class AppTextStyles {
     height: 1.231, // 16,
     letterSpacing: 0,
   );
+
+  static TextStyle headLineText(BuildContext context) =>
+      headlineXLarge.copyWith(
+        // color: Theme.of(context).colorScheme.primary,
+        foreground: Paint()
+          ..shader = LinearGradient(
+            colors: [
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.secondary,
+            ],
+          ).createShader(Rect.fromLTWH(0, 0, 200, 70)),
+        fontWeight: FontWeight.bold,
+      );
 }
