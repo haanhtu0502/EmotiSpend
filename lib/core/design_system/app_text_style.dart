@@ -22,7 +22,7 @@ class AppTextStyles {
   // display
   static const TextStyle displayLarge = TextStyle(
     fontSize: 57,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.12, // 64
     letterSpacing: -0.25,
@@ -30,7 +30,7 @@ class AppTextStyles {
 
   static const TextStyle displayMedium = TextStyle(
     fontSize: 45,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.156, // 52
     letterSpacing: -1,
@@ -38,7 +38,7 @@ class AppTextStyles {
 
   static const TextStyle displaySmall = TextStyle(
     fontSize: 36,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.222, // 44
   );
@@ -46,7 +46,7 @@ class AppTextStyles {
   // headline
   static const TextStyle headlineXLarge = TextStyle(
     fontSize: 36,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w600,
     height: 1.222, // 44
     letterSpacing: -1,
@@ -54,7 +54,7 @@ class AppTextStyles {
 
   static const TextStyle headlineLarge = TextStyle(
     fontSize: 28,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w600,
     height: 1.286, // 36
     letterSpacing: -0.5,
@@ -62,7 +62,7 @@ class AppTextStyles {
 
   static const TextStyle headlineMedium = TextStyle(
     fontSize: 24,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w600,
     height: 1.333, // 32,
     letterSpacing: -.5,
@@ -70,7 +70,7 @@ class AppTextStyles {
 
   static const TextStyle headlineSmall = TextStyle(
     fontSize: 20,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w600,
     height: 1.4, // 28,
     letterSpacing: -0.25,
@@ -79,7 +79,7 @@ class AppTextStyles {
   // title
   static const TextStyle titleXLarge = TextStyle(
     fontSize: 18,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.333, // 24,
     letterSpacing: -0.2,
@@ -87,7 +87,7 @@ class AppTextStyles {
 
   static const TextStyle titleLarge = TextStyle(
     fontSize: 16,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.5, // 24,
     letterSpacing: -0.1,
@@ -95,7 +95,7 @@ class AppTextStyles {
 
   static const TextStyle titleMedium = TextStyle(
     fontSize: 14,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.429, // 20,
     letterSpacing: 0,
@@ -103,7 +103,7 @@ class AppTextStyles {
 
   static const TextStyle titleSmall = TextStyle(
     fontSize: 13,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.231, // 16,
     letterSpacing: 0,
@@ -112,7 +112,7 @@ class AppTextStyles {
   // label
   static const TextStyle labelLarge = TextStyle(
     fontSize: 14,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.429, // 20,
     letterSpacing: 0,
@@ -120,7 +120,7 @@ class AppTextStyles {
 
   static const TextStyle labelMedium = TextStyle(
     fontSize: 12,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.333, // 16,
     letterSpacing: 0,
@@ -128,7 +128,7 @@ class AppTextStyles {
 
   static const TextStyle labelSmall = TextStyle(
     fontSize: 11,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w500,
     height: 1.231, // 16,
     letterSpacing: 0.25,
@@ -137,7 +137,7 @@ class AppTextStyles {
   // body
   static const TextStyle bodyXLarge = TextStyle(
     fontSize: 18,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.5556, // 28,
     letterSpacing: -0.1,
@@ -145,7 +145,7 @@ class AppTextStyles {
 
   static const TextStyle bodyLarge = TextStyle(
     fontSize: 16,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.5, // 24,
     letterSpacing: -0.1,
@@ -153,7 +153,7 @@ class AppTextStyles {
 
   static const TextStyle bodyMedium = TextStyle(
     fontSize: 14,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.429, // 20,
     letterSpacing: 0,
@@ -161,7 +161,7 @@ class AppTextStyles {
 
   static const TextStyle bodySmall = TextStyle(
     fontSize: 13,
-    fontFamily: 'Poppins',
+    // fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
     height: 1.231, // 16,
     letterSpacing: 0,
