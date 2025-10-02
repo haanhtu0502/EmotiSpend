@@ -1,6 +1,7 @@
 import 'package:emoti_spend/core/design_system/app_constant.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/core/design_system/image_constant.dart';
+import 'package:emoti_spend/core/extensions/context_extensions.dart';
 import 'package:emoti_spend/mvvm/data/enum/jar.dart';
 import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -61,19 +62,21 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _progressController.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 12),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFFA8BFF), Color(0xFF2BD2FF), Color(0xFF2BFF88)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
+          decoration: context.gradientBackground,
           child: Center(
             child: Container(
               width: double.infinity,

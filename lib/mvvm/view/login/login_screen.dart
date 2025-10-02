@@ -4,8 +4,10 @@ import 'package:emoti_spend/core/design_system/app_constant.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/core/design_system/icon_constant.dart';
 import 'package:emoti_spend/core/design_system/image_constant.dart';
+import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,7 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isRemember = false;
 
   void _onLogin() {
-    if (_key.currentState!.validate()) {}
+    // if (_key.currentState!.validate()) {}
+    GoRouter.of(context).go(AppPages.onboarding);
   }
 
   @override
@@ -86,6 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         "ĐĂNG NHẬP NGAY 🚀",
                         style: AppTextStyles.headlineSmall.copyWith(
                           color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

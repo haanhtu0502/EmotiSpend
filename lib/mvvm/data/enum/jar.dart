@@ -23,11 +23,11 @@ extension JarExtension on Jar {
   };
 
   double get toPercent => switch (this) {
-    Jar.nec => 0.55,
-    Jar.ltss => 0.1,
-    Jar.educ => 0.1,
-    Jar.play => 0.1,
-    Jar.give => 0.05,
-    Jar.ffa => 0.1,
+    Jar.nec => 55,
+    Jar.ltss => 10,
+    Jar.educ => 10,
+    Jar.play => 10,
+    Jar.give => 5,
+    Jar.ffa => 10,
   };
 }

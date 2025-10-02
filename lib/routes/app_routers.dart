@@ -1,4 +1,5 @@
 import 'package:emoti_spend/mvvm/view/login/login_screen.dart';
+import 'package:emoti_spend/mvvm/view/onboarding/oboarding_screen.dart';
 import 'package:emoti_spend/mvvm/view/splash/splash_screen.dart';
 import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,11 @@ final GoRouter appRouter = GoRouter(
       parentNavigatorKey: appNavigationKey,
       path: AppPages.login,
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: appNavigationKey,
+      path: AppPages.onboarding,
+      builder: (context, state) => const OnboardingScreen(),
     ),
   ],
 );
