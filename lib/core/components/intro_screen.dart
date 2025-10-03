@@ -74,6 +74,9 @@ class _IntroScreenState extends State<IntroScreen> {
     return false;
   }
 
+  double? get getCurrentPage =>
+      _pageController.hasClients ? _pageController.page : 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -95,7 +98,7 @@ class _IntroScreenState extends State<IntroScreen> {
         DotsIndicator(
           reversed: false,
           dotsCount: widget.pages.length,
-          position: _pageController.page ?? 0,
+          position: getCurrentPage ?? 0,
           decorator: DotsDecorator(
             size: const Size.square(10.0),
             activeSize: const Size(25.0, 10.0),
