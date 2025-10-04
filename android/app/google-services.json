@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "26700290327",
+    "firebase_url": "https://spendo-mood-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "spendo-mood",
+    "storage_bucket": "spendo-mood.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26700290327:android:1c78abc1d1e44071b9ff52",
+        "android_client_info": {
+          "package_name": "com.example.emoti_spend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu5lPcKzTt-FRO07nvo8n3pxxe4_ks3nU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
