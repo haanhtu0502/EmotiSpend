@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -50,21 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAu5lPcKzTt-FRO07nvo8n3pxxe4_ks3nU',
-    appId: '1:26700290327:android:1c78abc1d1e44071b9ff52',
-    messagingSenderId: '26700290327',
-    projectId: 'spendo-mood',
-    databaseURL: 'https://spendo-mood-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'spendo-mood.firebasestorage.app',
+    apiKey: 'AIzaSyA_7ce-zGFOMDexCL9Ff5lDUADmd67pSUQ',
+    appId: '1:216048233251:android:2a009b0eb41a021b047a96',
+    messagingSenderId: '216048233251',
+    projectId: 'emotispend',
+    storageBucket: 'emotispend.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAu7SelpGx0nTtxR78S4V8wJCOGaWhIiPg',
-    appId: '1:26700290327:ios:f57f833b89ec1c7ab9ff52',
-    messagingSenderId: '26700290327',
-    projectId: 'spendo-mood',
-    databaseURL: 'https://spendo-mood-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'spendo-mood.firebasestorage.app',
+    apiKey: 'AIzaSyA49Lkst7hzxveRFZGjmZ59Ae_5X1TyJ-s',
+    appId: '1:216048233251:ios:a6ef7144304ebdd6047a96',
+    messagingSenderId: '216048233251',
+    projectId: 'emotispend',
+    storageBucket: 'emotispend.firebasestorage.app',
     iosBundleId: 'com.example.emotiSpend',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBf2ZIrFrrBzkv5_2yFZWaozKCxSNWvGJw',
+    appId: '1:216048233251:web:751babccf7e30b60047a96',
+    messagingSenderId: '216048233251',
+    projectId: 'emotispend',
+    authDomain: 'emotispend.firebaseapp.com',
+    storageBucket: 'emotispend.firebasestorage.app',
+    measurementId: 'G-VKGTR5EJRJ',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyA49Lkst7hzxveRFZGjmZ59Ae_5X1TyJ-s',
+    appId: '1:216048233251:ios:a6ef7144304ebdd6047a96',
+    messagingSenderId: '216048233251',
+    projectId: 'emotispend',
+    storageBucket: 'emotispend.firebasestorage.app',
+    iosBundleId: 'com.example.emotiSpend',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBf2ZIrFrrBzkv5_2yFZWaozKCxSNWvGJw',
+    appId: '1:216048233251:web:43728fec36424254047a96',
+    messagingSenderId: '216048233251',
+    projectId: 'emotispend',
+    authDomain: 'emotispend.firebaseapp.com',
+    storageBucket: 'emotispend.firebasestorage.app',
+    measurementId: 'G-D72KZG9DFK',
+  );
+
 }
