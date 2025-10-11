@@ -54,6 +54,10 @@ class _IntroScreenState extends State<IntroScreen> {
 
   void _next() {
     if (_isScrolling) return;
+    if (_currentPage == widget.pages.length - 1) {
+      widget.onDone();
+      return;
+    }
     _animateScroll(_currentPage + 1);
     FocusScope.of(context).unfocus();
   }

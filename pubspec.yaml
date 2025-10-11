@@ -45,6 +45,7 @@ dependencies:
   dots_indicator: ^4.0.1
   firebase_core: ^4.1.1
   firebase_auth: ^6.1.0
+  animated_bottom_navigation_bar: ^1.4.0
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,9 @@ import 'package:emoti_spend/mvvm/view/onboarding/pages/follow_emotion_page.dart'
 import 'package:emoti_spend/mvvm/view/onboarding/pages/jars_methos_page.dart';
 import 'package:emoti_spend/mvvm/view/onboarding/pages/out_standing_features.dart';
 import 'package:emoti_spend/mvvm/view/onboarding/pages/welcome_page.dart';
+import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -46,7 +48,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 children: [
                   Expanded(
                     child: IntroScreen(
-                      onDone: () {},
+                      onDone: () {
+                        GoRouter.of(context).push(AppPages.home);
+                      },
                       pages: [
                         WelcomePage(),
                         FollowEmotionPage(),
