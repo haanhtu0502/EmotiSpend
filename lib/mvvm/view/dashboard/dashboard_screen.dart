@@ -21,42 +21,56 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final theme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      body: Column(
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              const AnimatedHeaderBackground(),
-              Positioned(
-                top: 110,
-                left: 30,
-                right: 30,
-                child: _buildHeaderCard(context, theme),
-              ),
-            ],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            stretch: true,
+            floating: false,
+            pinned: true,
+            leading: const SizedBox(),
+            expandedHeight: 200,
+            flexibleSpace: LayoutBuilder(
+              builder: (context, constraint) {
+                final percent =
+                    (constraint.maxHeight - kToolbarHeight) /
+                    (250 - kToolbarHeight);
+                return Stack(
+                  fit: StackFit.expand,
+                  clipBehavior: Clip.none,
+                  children: [
+                    const AnimatedHeaderBackground(),
+                    if (percent > 0.3)
+                      Positioned(
+                        top: 110 * percent.clamp(0.0, 1.0),
+                        left: 30,
+                        right: 30,
+                        child: _buildHeaderCard(context, theme),
+                      ),
+                  ],
+                );
+              },
+            ),
           ),
-          const SizedBox(height: 90),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
-                    child: _buildJars(context, theme),
-                  ),
-                  const SizedBox(height: 24),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: _buildEmoExpense(context, theme),
-                  ),
-                  const SizedBox(height: 24),
-                  Padding(
-                    padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
-                    child: _buildHistoryTransaction(context, theme),
-                  ),
-                  const SizedBox(height: 24),
-                ],
-              ),
+          const SliverToBoxAdapter(child: SizedBox(height: 90)),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+                  child: _buildJars(context, theme),
+                ),
+                const SizedBox(height: 24),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: _buildEmoExpense(context, theme),
+                ),
+                const SizedBox(height: 24),
+                Padding(
+                  padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+                  child: _buildHistoryTransaction(context, theme),
+                ),
+                const SizedBox(height: 24),
+              ],
             ),
           ),
         ],
