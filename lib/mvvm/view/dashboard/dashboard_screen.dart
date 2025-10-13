@@ -1,5 +1,7 @@
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
+import 'package:emoti_spend/mvvm/data/enum/jar.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/animated_header.dart';
+import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_jar_card.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -22,12 +24,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
             children: [
               AnimatedHeaderBackground(),
               Positioned(
-                top: 100,
+                top: 110,
                 left: 30,
                 right: 30,
                 child: _buildHeaderCard(context, theme),
               ),
             ],
+          ),
+          const SizedBox(height: 90),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+                    child: _buildJars(context, theme),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -199,6 +215,124 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildJars(BuildContext context, ColorScheme theme) {
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "6 Hũ tài chính",
+              style: AppTextStyles.titleXLarge.copyWith(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            GestureDetector(
+              child: Row(
+                children: [
+                  Text(
+                    "Xem tất cả",
+                    style: AppTextStyles.titleLarge.copyWith(
+                      color: theme.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: theme.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: BuildJarCard(
+                icon: Jar.nec.toEmoji,
+                title: Jar.nec.toName,
+                percent: Jar.nec.toPercent.toInt(),
+                color: Jar.nec.toColor,
+                remain: 6500000,
+                amount: 8250000,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: BuildJarCard(
+                icon: Jar.educ.toEmoji,
+                title: Jar.educ.toName,
+                percent: Jar.educ.toPercent.toInt(),
+                color: Jar.educ.toColor,
+                remain: 900000,
+                amount: 1500000,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: BuildJarCard(
+                icon: Jar.ltss.toEmoji,
+                title: Jar.ltss.toName,
+                percent: Jar.ltss.toPercent.toInt(),
+                color: Jar.ltss.toColor,
+                remain: 600000,
+                amount: 1500000,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: BuildJarCard(
+                icon: Jar.play.toEmoji,
+                title: Jar.play.toName,
+                percent: Jar.play.toPercent.toInt(),
+                color: Jar.play.toColor,
+                remain: 225000,
+                amount: 1500000,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: BuildJarCard(
+                icon: Jar.give.toEmoji,
+                title: Jar.give.toName,
+                percent: Jar.give.toPercent.toInt(),
+                color: Jar.give.toColor,
+                remain: 525123,
+                amount: 750432,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: BuildJarCard(
+                icon: Jar.ffa.toEmoji,
+                title: Jar.ffa.toName,
+                percent: Jar.ffa.toPercent.toInt(),
+                color: Jar.ffa.toColor,
+                remain: 750000,
+                amount: 1500000,
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

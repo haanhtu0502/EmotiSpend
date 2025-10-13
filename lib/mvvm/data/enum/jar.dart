@@ -30,4 +30,13 @@ extension JarExtension on Jar {
     Jar.give => 5,
     Jar.ffa => 10,
   };
+
+  String get toName => switch (this) {
+    Jar.nec => "Thiết yếu",
+    Jar.ltss => "Tiết kiệm",
+    Jar.educ => "Giáo dục",
+    Jar.play => "Hưởng thụ",
+    Jar.give => "Cho đi",
+    Jar.ffa => "Tự do TC",
+  };
 }

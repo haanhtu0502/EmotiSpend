@@ -14,7 +14,7 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   final List<NavItem> _listFeatures = [
     NavItem(icon: Icons.home, name: "Trang chủ"),
-    NavItem(icon: Icons.savings, name: "Tiết kiệm"),
+    NavItem(icon: Icons.savings, name: "6 hũ"),
     NavItem(icon: Icons.line_axis, name: "Báo cáo"),
     NavItem(icon: Icons.emoji_emotions, name: "Cảm xúc"),
     NavItem(icon: Icons.settings, name: "Cài đặt"),
@@ -97,7 +97,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           const SizedBox(height: 4),
           Text(
             name,
-            style: AppTextStyles.titleMedium.copyWith(
+            style: AppTextStyles.titleSmall.copyWith(
               color: color,
               fontWeight: FontWeight.bold,
             ),

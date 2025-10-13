@@ -1,3 +1,5 @@
+import 'package:emoti_spend/core/components/build_glassmorphism.dart';
+import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedHeaderBackground extends StatefulWidget {
@@ -50,7 +52,8 @@ class _AnimatedHeaderBackgroundState extends State<AnimatedHeaderBackground>
       animation: _alignmentAnimation,
       builder: (context, child) {
         return Container(
-          height: 200,
+          height: 240,
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: _alignmentAnimation.value,
@@ -63,6 +66,33 @@ class _AnimatedHeaderBackgroundState extends State<AnimatedHeaderBackground>
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
+            ),
+          ),
+          child: SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Chào buổi sáng 👋",
+                      style: AppTextStyles.titleLarge.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      "Anh Tú",
+                      style: AppTextStyles.titleXLarge.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                BuildGlassmorphism(),
+              ],
             ),
           ),
         );
