@@ -91,7 +91,7 @@ class _AnimatedHeaderBackgroundState extends State<AnimatedHeaderBackground>
                     ),
                   ],
                 ),
-                BuildGlassmorphism(),
+                const BuildGlassmorphism(),
               ],
             ),
           ),

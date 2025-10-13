@@ -14,6 +14,7 @@ const ColorScheme lightColorScheme = ColorScheme.light(
   surface: Colors.white,
   onSurface: Color(0xFF111827), // Xám đậm cho text chính
   onSurfaceVariant: Color(0xFFF8FAFB),
+  outline: Color(0xFFF1F5F9), // divider
 );
 
 const jarColors = [

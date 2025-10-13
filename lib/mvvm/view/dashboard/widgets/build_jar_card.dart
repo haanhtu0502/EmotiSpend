@@ -29,10 +29,10 @@ class BuildJarCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.white,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: const Color.fromRGBO(0, 0, 0, 0.08),
-            offset: const Offset(0, 10),
+            color: Color.fromRGBO(0, 0, 0, 0.08),
+            offset: Offset(0, 10),
             blurRadius: 40,
           ),
         ],
@@ -44,7 +44,7 @@ class BuildJarCard extends StatelessWidget {
             children: [
               Expanded(
                 flex: 1,
-                child: Text(icon, style: TextStyle(fontSize: 24)),
+                child: Text(icon, style: const TextStyle(fontSize: 24)),
               ),
               const SizedBox(width: 4),
               Expanded(
@@ -55,7 +55,7 @@ class BuildJarCard extends StatelessWidget {
                     Text(
                       title,
                       style: AppTextStyles.titleMedium.copyWith(
-                        color: Color(0xFF4A5568),
+                        color: const Color(0xFF4A5568),
                         fontWeight: FontWeight.bold,
                       ),
                     ),

@@ -31,13 +31,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: Container(
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: SafeArea(
+        child: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -48,7 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
 
-          padding: EdgeInsets.only(top: 0, bottom: 20, left: 24, right: 24),
+          padding: const EdgeInsets.only(
+            top: 0,
+            bottom: 20,
+            left: 24,
+            right: 24,
+          ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -83,7 +88,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: BuildButton(
                     onPressed: _onLogin,
                     radius: 15,
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 16,
+                    ),
                     content: Center(
                       child: Text(
                         "ĐĂNG NHẬP NGAY 🚀",
@@ -155,16 +163,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildEmojis(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 40),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [Color(0xFFFFF6E9), Color(0xFFFCEFFD)],
         ),
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text("😄", style: TextStyle(fontSize: 32)),
@@ -194,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
             isRequired: true,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Color(0xFFFFD6DA),
                 width: 2,
               ), // viền hồng
@@ -221,14 +229,14 @@ class _LoginScreenState extends State<LoginScreen> {
             isRequired: true,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Color(0xFFFFD6DA),
                 width: 2,
               ), // viền hồng
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Color(0xFFFF8FA3),
                 width: 2,
               ), // đậm hơn khi focus
@@ -283,9 +291,9 @@ class _LoginScreenState extends State<LoginScreen> {
         Expanded(
           child: BuildButton(
             onPressed: () {},
-            backgroundColor: Color(0xFFEAF3FF),
-            border: BorderSide(width: 1, color: Color(0xFFD6E6FF)),
-            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 0),
+            backgroundColor: const Color(0xFFEAF3FF),
+            border: const BorderSide(width: 1, color: Color(0xFFD6E6FF)),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 0),
             content: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -309,9 +317,9 @@ class _LoginScreenState extends State<LoginScreen> {
         Expanded(
           child: BuildButton(
             onPressed: () {},
-            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 0),
-            border: BorderSide(width: 1, color: Color(0xFFFFE0D6)),
-            backgroundColor: Color(0xFFFFF5F0),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 0),
+            border: const BorderSide(width: 1, color: Color(0xFFFFE0D6)),
+            backgroundColor: const Color(0xFFFFF5F0),
             content: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

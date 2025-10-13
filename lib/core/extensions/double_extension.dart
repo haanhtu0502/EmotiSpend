@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 extension DoubleExtension on double {
   String formatMoney() {
     if (this >= 1000000000) {
@@ -13,5 +15,10 @@ extension DoubleExtension on double {
       // Dưới 1000
       return toStringAsFixed(0);
     }
+  }
+
+  String formatVND() {
+    final formatter = NumberFormat('#,###', 'vi_VN');
+    return '${formatter.format(this)}đ';
   }
 }

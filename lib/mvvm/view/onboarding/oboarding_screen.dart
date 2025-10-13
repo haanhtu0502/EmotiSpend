@@ -18,18 +18,18 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          decoration: context.gradientBackground,
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        decoration: context.gradientBackground,
+        child: SafeArea(
           child: Center(
             child: Container(
               width: double.infinity,
               height: 600,
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 24),
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 24),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
@@ -51,7 +51,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       onDone: () {
                         GoRouter.of(context).push(AppPages.home);
                       },
-                      pages: [
+                      pages: const [
                         WelcomePage(),
                         FollowEmotionPage(),
                         JarsMethodPage(),
