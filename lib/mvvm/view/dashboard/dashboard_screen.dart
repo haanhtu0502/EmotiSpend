@@ -6,7 +6,9 @@ import 'package:emoti_spend/mvvm/view/dashboard/widgets/animated_header.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_expense_emo_item.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_jar_card.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_transaction_item.dart';
+import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -51,7 +53,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               },
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 90)),
+          const SliverToBoxAdapter(child: SizedBox(height: 70)),
           SliverToBoxAdapter(
             child: Column(
               children: [
@@ -103,36 +105,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   color: theme.onBackground,
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                decoration: const BoxDecoration(
-                  color: Color(0xFFE6FFFA),
-                  borderRadius: BorderRadius.all(Radius.circular(24)),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.arrow_upward,
-                      color: Color(0xFF00B894),
-                      size: 18,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      "12%",
-                      style: AppTextStyles.titleMedium.copyWith(
-                        color: const Color(0xFF00B894),
-                      ),
-                    ),
-                  ],
-                ),
+              GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppPages.setRevenue);
+                },
+                child: const Icon(Icons.edit),
               ),
+              // Container(
+              //   padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+              //   decoration: const BoxDecoration(
+              //     color: Color(0xFFE6FFFA),
+              //     borderRadius: BorderRadius.all(Radius.circular(24)),
+              //   ),
+              //   child: Row(
+              //     children: [
+              //       const Icon(
+              //         Icons.arrow_upward,
+              //         color: Color(0xFF00B894),
+              //         size: 18,
+              //       ),
+              //       const SizedBox(width: 4),
+              //       Text(
+              //         "12%",
+              //         style: AppTextStyles.titleMedium.copyWith(
+              //           color: const Color(0xFF00B894),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "16.000.000",
+                "16.000.000đ",
                 style: AppTextStyles.headlineLarge.copyWith(
                   color: theme.onSurface,
                   fontWeight: FontWeight.bold,

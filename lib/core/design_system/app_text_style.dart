@@ -176,7 +176,7 @@ class AppTextStyles {
               Theme.of(context).colorScheme.primary,
               Theme.of(context).colorScheme.secondary,
             ],
-          ).createShader(Rect.fromLTWH(0, 0, 200, 70)),
+          ).createShader(const Rect.fromLTWH(0, 0, 200, 70)),
         fontWeight: FontWeight.bold,
       );
 }

@@ -17,8 +17,8 @@ extension DoubleExtension on double {
     }
   }
 
-  String formatVND() {
+  String formatVND({bool isShowCurrency = false}) {
     final formatter = NumberFormat('#,###', 'vi_VN');
-    return '${formatter.format(this)}đ';
+    return '${formatter.format(this)}${isShowCurrency ? "đ" : ""}';
   }
 }

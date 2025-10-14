@@ -1,3 +1,4 @@
+import 'package:emoti_spend/core/utils/number_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -18,6 +19,9 @@ class BuildTextInputField extends StatelessWidget {
     this.focusedBorder,
     this.isRequired = false,
     this.validateText,
+    this.textStyle,
+    this.textAlign,
+    this.filledColor,
   });
 
   final TextEditingController controller;
@@ -34,6 +38,9 @@ class BuildTextInputField extends StatelessWidget {
   final bool isPassword;
   final bool isRequired;
   final String? validateText;
+  final TextStyle? textStyle;
+  final TextAlign? textAlign;
+  final Color? filledColor;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +51,8 @@ class BuildTextInputField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          style: textStyle,
+          textAlign: textAlign ?? TextAlign.start,
           obscureText: isPassword,
           controller: controller,
           onChanged: onChange,
@@ -58,12 +67,14 @@ class BuildTextInputField extends StatelessWidget {
               ? [
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                   FilteringTextInputFormatter.digitsOnly,
+                  NumberInputFormatter(),
                 ]
               : null,
           decoration: InputDecoration(
             hintText: hintText,
+
             filled: true,
-            fillColor: Color(0xFFFFF5F7),
+            fillColor: filledColor ?? const Color(0xFFFFF5F7),
             hintStyle: hintStyle,
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
