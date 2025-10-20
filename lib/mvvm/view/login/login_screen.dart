@@ -33,27 +33,23 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xFFF0FFFB), // xanh mint nhạt
-                Color(0xFFFFFFFF), // trắng
-              ],
-            ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight, // to-br
+            colors: [
+              Color(0xFFFEF9C3), // from-yellow-100
+              Color(0xFFFCE7F3), // via-pink-100
+              Color(0xFFE9D5FF), // to-purple-200
+            ],
           ),
+        ),
 
-          padding: const EdgeInsets.only(
-            top: 0,
-            bottom: 20,
-            left: 24,
-            right: 24,
-          ),
+        padding: const EdgeInsets.only(top: 0, bottom: 20, left: 24, right: 24),
+        child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
