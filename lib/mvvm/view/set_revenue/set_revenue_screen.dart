@@ -1,6 +1,5 @@
-import 'package:collection/collection.dart';
 import 'package:emoti_spend/core/components/animated_header.dart';
-import 'package:emoti_spend/core/components/build_glassmorphism.dart';
+import 'package:emoti_spend/core/components/build_button.dart';
 import 'package:emoti_spend/core/components/build_text_input_field.dart';
 import 'package:emoti_spend/core/design_system/app_colors.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
@@ -27,11 +26,11 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
       )
       .toList();
 
-  void _updatePercent(int index, int newPercent) {
-    _listJarAmountItems = _listJarAmountItems
-        .mapIndexed((i, e) => i == index ? e.copyWith(percent: newPercent) : e)
-        .toList();
-  }
+  // void _updatePercent(int index, int newPercent) {
+  //   _listJarAmountItems = _listJarAmountItems
+  //       .mapIndexed((i, e) => i == index ? e.copyWith(percent: newPercent) : e)
+  //       .toList();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +40,16 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
       body: Column(
         children: [
           AnimatedHeaderBackground(
-            padding: const EdgeInsetsGeometry.symmetric(
-              horizontal: 16,
-              vertical: 0,
+            padding: const EdgeInsetsGeometry.only(
+              left: 16,
+              right: 16,
+              bottom: 16,
             ),
-            child: SafeArea(
-              child: Column(
-                children: [
-                  Row(
+            child: Column(
+              children: [
+                SafeArea(
+                  bottom: false,
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
@@ -68,94 +69,96 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      InkWell(
-                        onTap: () {
-                          // Navigator.of(context).pop();
-                        },
-                        child: BuildGlassmorphism(
-                          padding: const EdgeInsetsGeometry.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          radius: 12,
-                          child: Text(
-                            "Lưu",
-                            style: AppTextStyles.titleXLarge.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
+                      const SizedBox(),
                     ],
                   ),
-                  const SizedBox(height: 12),
-                  Text(
-                    "Nhập số dư của bạn, EmotiSpend sẽ tự động chia thành 6 hũ theo phương pháp quản lý tài chính thông minh",
-                    style: AppTextStyles.titleMedium.copyWith(
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  "Nhập số dư của bạn, EmotiSpend sẽ tự động chia thành 6 hũ theo phương pháp quản lý tài chính thông minh",
+                  style: AppTextStyles.titleMedium.copyWith(
+                    color: Colors.white,
                   ),
-                ],
-              ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
+          const SizedBox(height: 16),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ListView(
-                children: [
-                  // Container(
-                  //   width: 150,
-                  //   height: 150,
-                  //   decoration: const BoxDecoration(
-                  //     image: DecorationImage(
-                  //       image: AssetImage(ImageConstant.appLogo),
-                  //       fit: BoxFit.contain,
-                  //     ),
-                  //   ),
-                  // ),
-                  Row(
-                    children: [
-                      Text(
-                        "Số dư hiện tại của bạn",
-                        style: AppTextStyles.titleLarge.copyWith(
-                          color: theme.onSurface,
-                          fontWeight: FontWeight.bold,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // Container(
+                    //   width: 150,
+                    //   height: 150,
+                    //   decoration: const BoxDecoration(
+                    //     image: DecorationImage(
+                    //       image: AssetImage(ImageConstant.appLogo),
+                    //       fit: BoxFit.contain,
+                    //     ),
+                    //   ),
+                    // ),
+                    Row(
+                      children: [
+                        Text(
+                          "Số dư hiện tại của bạn",
+                          style: AppTextStyles.titleLarge.copyWith(
+                            color: theme.onSurface,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+
+                      child: BuildTextInputField(
+                        controller: _revenueController,
+                        onChange: (value) {},
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFFFD6DA),
+                            width: 3,
+                          ), // viền hồng
+                        ),
+                        isNumber: true,
+                        hintText: "10.000.000đ",
+                        textStyle: AppTextStyles.headlineLarge,
+                        hintStyle: AppTextStyles.headlineLarge.copyWith(
+                          color: Colors.grey.shade400,
+                        ),
+                        textAlign: TextAlign.center,
+                        filledColor: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildChoices(context),
+                    const SizedBox(height: 16),
+                    _buildJarsAmount(context),
+                    const SizedBox(height: 16),
+                    SizedBox(
+                      width: double.infinity,
+                      child: BuildButton(
+                        radius: 9999,
+                        backgroundColor: theme.primary,
+                        onPressed: () {},
+                        content: Text(
+                          "Lưu thay đổi",
+                          style: AppTextStyles.titleLarge.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-
-                    child: BuildTextInputField(
-                      controller: _revenueController,
-                      onChange: (value) {},
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(
-                          color: Color(0xFFFFD6DA),
-                          width: 3,
-                        ), // viền hồng
-                      ),
-                      isNumber: true,
-                      hintText: "10.000.000đ",
-                      textStyle: AppTextStyles.headlineLarge,
-                      hintStyle: AppTextStyles.headlineLarge.copyWith(
-                        color: Colors.grey.shade400,
-                      ),
-                      textAlign: TextAlign.center,
-                      filledColor: Colors.white,
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  _buildChoices(context),
-                  const SizedBox(height: 16),
-                  _buildJarsAmount(context),
-                ],
+                    const SizedBox(height: 36),
+                  ],
+                ),
               ),
             ),
           ),
