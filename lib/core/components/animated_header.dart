@@ -1,9 +1,16 @@
-import 'package:emoti_spend/core/components/build_glassmorphism.dart';
-import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedHeaderBackground extends StatefulWidget {
-  const AnimatedHeaderBackground({super.key});
+  const AnimatedHeaderBackground({
+    super.key,
+    required this.child,
+    this.height,
+    this.padding,
+  });
+
+  final Widget child;
+  final double? height;
+  final EdgeInsetsGeometry? padding;
 
   @override
   State<AnimatedHeaderBackground> createState() =>
@@ -52,8 +59,10 @@ class _AnimatedHeaderBackgroundState extends State<AnimatedHeaderBackground>
       animation: _alignmentAnimation,
       builder: (context, child) {
         return Container(
-          height: 240,
-          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+          height: widget.height,
+          padding:
+              widget.padding ??
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: _alignmentAnimation.value,
@@ -68,33 +77,7 @@ class _AnimatedHeaderBackgroundState extends State<AnimatedHeaderBackground>
               bottomRight: Radius.circular(30),
             ),
           ),
-          child: SafeArea(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Chào buổi sáng 👋",
-                      style: AppTextStyles.titleLarge.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      "Anh Tú",
-                      style: AppTextStyles.titleXLarge.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const BuildGlassmorphism(),
-              ],
-            ),
-          ),
+          child: widget.child,
         );
       },
     );

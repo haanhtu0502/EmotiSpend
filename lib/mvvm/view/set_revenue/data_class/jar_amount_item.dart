@@ -10,4 +10,12 @@ class JarAmountItem {
     required this.amount,
     required this.percent,
   });
+
+  JarAmountItem copyWith({Jar? jar, double? amount, int? percent}) {
+    return JarAmountItem(
+      jar: jar ?? this.jar,
+      amount: amount ?? this.amount,
+      percent: percent ?? this.percent,
+    );
+  }
 }

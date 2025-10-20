@@ -9,12 +9,16 @@ class BuildGlassmorphism extends StatelessWidget {
     this.color,
     this.width,
     this.height,
+    this.padding,
+    required this.child,
   });
 
   final double? radius;
   final Color? color;
   final double? width;
   final double? height;
+  final EdgeInsetsGeometry? padding;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +27,9 @@ class BuildGlassmorphism extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
-          width: width ?? 35,
-          height: height ?? 35,
+          width: width,
+          height: height,
+          padding: padding,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.15),
             borderRadius: BorderRadius.circular(radius ?? 20),
@@ -33,13 +38,7 @@ class BuildGlassmorphism extends StatelessWidget {
               width: 1.5,
             ),
           ),
-          child: Center(
-            child: Icon(
-              Icons.question_mark_rounded,
-              color: Colors.white,
-              size: 18,
-            ),
-          ),
+          child: child,
         ),
       ),
     );

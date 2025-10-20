@@ -1,8 +1,9 @@
 import 'package:collection/collection.dart';
+import 'package:emoti_spend/core/components/build_glassmorphism.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/mvvm/data/enum/emotion.dart';
 import 'package:emoti_spend/mvvm/data/enum/jar.dart';
-import 'package:emoti_spend/mvvm/view/dashboard/widgets/animated_header.dart';
+import 'package:emoti_spend/core/components/animated_header.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_expense_emo_item.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_jar_card.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/widgets/build_transaction_item.dart';
@@ -40,7 +41,46 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   fit: StackFit.expand,
                   clipBehavior: Clip.none,
                   children: [
-                    const AnimatedHeaderBackground(),
+                    AnimatedHeaderBackground(
+                      height: 240,
+                      child: SafeArea(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Chào buổi sáng 👋",
+                                  style: AppTextStyles.titleLarge.copyWith(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "Anh Tú",
+                                  style: AppTextStyles.titleXLarge.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const BuildGlassmorphism(
+                              width: 35,
+                              height: 35,
+                              child: Center(
+                                child: Icon(
+                                  Icons.question_mark_rounded,
+                                  color: Colors.white,
+                                  size: 18,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     if (percent > 0.3)
                       Positioned(
                         top: 110 * percent.clamp(0.0, 1.0),

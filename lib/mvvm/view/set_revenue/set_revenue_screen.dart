@@ -1,6 +1,9 @@
+import 'package:collection/collection.dart';
+import 'package:emoti_spend/core/components/animated_header.dart';
+import 'package:emoti_spend/core/components/build_glassmorphism.dart';
 import 'package:emoti_spend/core/components/build_text_input_field.dart';
+import 'package:emoti_spend/core/design_system/app_colors.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
-import 'package:emoti_spend/core/design_system/image_constant.dart';
 import 'package:emoti_spend/core/extensions/double_extension.dart';
 import 'package:emoti_spend/mvvm/data/enum/jar.dart';
 import 'package:emoti_spend/mvvm/view/set_revenue/data_class/jar_amount_item.dart';
@@ -18,11 +21,17 @@ class SetRevenueScreen extends StatefulWidget {
 class _SetRevenueScreenState extends State<SetRevenueScreen> {
   final TextEditingController _revenueController = TextEditingController();
   int? _currentIndex;
-  final List<JarAmountItem> _listJarAmountItems = Jar.values
+  List<JarAmountItem> _listJarAmountItems = Jar.values
       .map(
         (e) => JarAmountItem(jar: e, amount: 0, percent: e.toPercent.toInt()),
       )
       .toList();
+
+  void _updatePercent(int index, int newPercent) {
+    _listJarAmountItems = _listJarAmountItems
+        .mapIndexed((i, e) => i == index ? e.copyWith(percent: newPercent) : e)
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,40 +40,62 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
       // backgroundColor: const Color.fromRGBO(255, 255, 255, 0.95),
       body: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFFFFD73D), Color(0xFFFF6B9D)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
+          AnimatedHeaderBackground(
+            padding: const EdgeInsetsGeometry.symmetric(
+              horizontal: 16,
+              vertical: 0,
             ),
             child: SafeArea(
-              child: Row(
+              child: Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_ios,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Thiết lập số dư',
+                        style: AppTextStyles.headlineMedium.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          // Navigator.of(context).pop();
+                        },
+                        child: BuildGlassmorphism(
+                          padding: const EdgeInsetsGeometry.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          radius: 12,
+                          child: Text(
+                            "Lưu",
+                            style: AppTextStyles.titleXLarge.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    "Nhập số dư của bạn, EmotiSpend sẽ tự động chia thành 6 hũ theo phương pháp quản lý tài chính thông minh",
+                    style: AppTextStyles.titleMedium.copyWith(
                       color: Colors.white,
                     ),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(
-                      "Lưu",
-                      style: AppTextStyles.titleXLarge.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
@@ -85,22 +116,6 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
                   //     ),
                   //   ),
                   // ),
-                  Text(
-                    'Thiết lập số dư',
-                    style: AppTextStyles.headLineText(
-                      context,
-                    ).copyWith(fontSize: 28),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    "Nhập số dư của bạn, EmotiSpend sẽ tự động chia thành 6 hũ theo phương pháp quản lý tài chính thông minh",
-                    style: AppTextStyles.titleMedium.copyWith(
-                      color: theme.onBackground,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
                   Row(
                     children: [
                       Text(
@@ -296,6 +311,37 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
                 ),
               )
               .expand((e) => [e, const SizedBox(height: 12)]),
+          const SizedBox(height: 12),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Tổng cộng",
+                style: AppTextStyles.titleLarge.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "100%",
+                style: AppTextStyles.titleLarge.copyWith(
+                  color: 100 == 100 ? jarColors[0] : jarColors[5],
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: LinearProgressIndicator(
+              value: 100 / 100,
+              backgroundColor: Colors.grey.shade200,
+              color: 100 == 100 ? jarColors[0] : jarColors[5],
+              minHeight: 10,
+            ),
+          ),
+          const SizedBox(height: 12),
         ],
       ),
     );
