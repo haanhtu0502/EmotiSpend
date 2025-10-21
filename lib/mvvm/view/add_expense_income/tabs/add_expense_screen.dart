@@ -27,15 +27,30 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     final theme = Theme.of(context).colorScheme;
     return Column(
       children: [
-        _buildInput(context, theme),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          child: _buildInput(context, theme),
+        ),
         const SizedBox(height: 20),
-        _buildSelectJar(context, theme),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          child: _buildSelectJar(context, theme),
+        ),
         const SizedBox(height: 20),
-        _buildSelectEmoji(context, theme),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          child: _buildSelectEmoji(context, theme),
+        ),
         const SizedBox(height: 20),
-        _buildDescriptionInput(context, theme),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          child: _buildDescriptionInput(context, theme),
+        ),
         const SizedBox(height: 20),
-        _buildSaveButton(context, theme),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          child: _buildSaveButton(context, theme),
+        ),
         const SizedBox(height: 20),
       ],
     );

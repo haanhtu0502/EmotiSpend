@@ -55,12 +55,12 @@ class _AddExpenseIncomeWrapperState extends State<AddExpenseIncomeWrapper> {
           ),
           const SizedBox(height: 16),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    BuildTabBar(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+                    child: BuildTabBar(
                       tabItems: const ["Chi tiêu 💸", "Thu nhập 💰"],
                       onTap: (value) {
                         setState(() {
@@ -68,14 +68,14 @@ class _AddExpenseIncomeWrapperState extends State<AddExpenseIncomeWrapper> {
                         });
                       },
                     ),
-                    const SizedBox(height: 24),
-                    switch (_currentIndex) {
-                      0 => const AddExpenseScreen(),
-                      1 => const AddExpenseScreen(),
-                      _ => const SizedBox(),
-                    },
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 24),
+                  switch (_currentIndex) {
+                    0 => const AddExpenseScreen(),
+                    1 => const AddExpenseScreen(),
+                    _ => const SizedBox(),
+                  },
+                ],
               ),
             ),
           ),
