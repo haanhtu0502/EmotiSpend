@@ -2,7 +2,9 @@ import 'package:collection/collection.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/mvvm/view/dashboard/dashboard_screen.dart';
 import 'package:emoti_spend/mvvm/view/navigation_screen/data_class/nav_item.dart';
+import 'package:emoti_spend/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -12,7 +14,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  final List<NavItem> _listFeatures = [
+  final List<NavItem> _listFeatures = const [
     NavItem(icon: Icons.home, name: "Trang chủ"),
     NavItem(icon: Icons.savings, name: "6 hũ"),
     NavItem(icon: Icons.line_axis, name: "Báo cáo"),
@@ -27,9 +29,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        shape: CircleBorder(),
-        child: Center(child: Icon(Icons.add, color: Colors.white, size: 36)),
+        onPressed: () {
+          GoRouter.of(context).push(AppPages.addTransaction);
+        },
+        shape: const CircleBorder(),
+        child: const Center(
+          child: Icon(Icons.add, color: Colors.white, size: 36),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: BottomAppBar(
@@ -65,17 +71,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
         builder: (contex, value, child) {
           switch (_currentIndex.value) {
             case 0:
-              return DashboardScreen();
+              return const DashboardScreen();
             case 1:
-              return DashboardScreen();
+              return const DashboardScreen();
             case 2:
-              return DashboardScreen();
+              return const DashboardScreen();
             case 3:
-              return DashboardScreen();
+              return const DashboardScreen();
             case 4:
-              return DashboardScreen();
+              return const DashboardScreen();
             default:
-              return DashboardScreen();
+              return const DashboardScreen();
           }
         },
       ),

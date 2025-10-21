@@ -9,6 +9,19 @@ extension ContextExtensions on BuildContext {
     ),
   );
 
+  List<BoxShadow> get shadowMd => [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.1),
+      offset: const Offset(0, 4),
+      blurRadius: 6,
+    ),
+    BoxShadow(
+      color: Colors.black.withOpacity(0.06),
+      offset: const Offset(0, 2),
+      blurRadius: 4,
+    ),
+  ];
+
   double get heightDevice => MediaQuery.sizeOf(this).height;
   double get widthDevice => MediaQuery.sizeOf(this).width;
 }

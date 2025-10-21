@@ -37,6 +37,48 @@ extension JarExtension on Jar {
     Jar.educ => "Giáo dục",
     Jar.play => "Hưởng thụ",
     Jar.give => "Cho đi",
-    Jar.ffa => "Tự do TC",
+    Jar.ffa => "Đầu tư",
+  };
+
+  LinearGradient get toLinearGradient => switch (this) {
+    Jar.nec => LinearGradient(
+      colors: [
+        const Color(0xFF4ADE80),
+        toColor,
+      ], // from-green-400 to-emerald-500
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    Jar.ltss => LinearGradient(
+      colors: [const Color(0xFF60A5FA), toColor], // from-blue-400 to-indigo-500
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    Jar.educ => LinearGradient(
+      colors: [
+        const Color(0xFFFCD34D),
+        toColor,
+      ], // from-amber-300 to-yellow-500
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    Jar.play => LinearGradient(
+      colors: [
+        const Color(0xFFA78BFA),
+        toColor,
+      ], // from-violet-400 to-purple-500
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    Jar.give => LinearGradient(
+      colors: [const Color(0xFFF472B6), toColor], // from-pink-400 to-rose-500
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
+    Jar.ffa => LinearGradient(
+      colors: [const Color(0xFFF87171), toColor], // from-red-400 to-orange-500
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+    ),
   };
 }

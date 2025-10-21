@@ -4,4 +4,5 @@ class AppPages {
   static const String login = '/login';
   static const String onboarding = '/onboarding';
   static const String setRevenue = '/setRevenue';
+  static const String addTransaction = '/addTransaction';
 }

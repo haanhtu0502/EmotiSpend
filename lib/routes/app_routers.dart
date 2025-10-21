@@ -1,3 +1,4 @@
+import 'package:emoti_spend/mvvm/view/add_expense_income/add_expense_income_wrapper.dart';
 import 'package:emoti_spend/mvvm/view/login/login_screen.dart';
 import 'package:emoti_spend/mvvm/view/navigation_screen/navigation_screen.dart';
 import 'package:emoti_spend/mvvm/view/onboarding/oboarding_screen.dart';
@@ -41,6 +42,11 @@ final GoRouter appRouter = GoRouter(
       parentNavigatorKey: appNavigationKey,
       path: AppPages.setRevenue,
       builder: (context, state) => const SetRevenueScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: appNavigationKey,
+      path: AppPages.addTransaction,
+      builder: (context, state) => const AddExpenseIncomeWrapper(),
     ),
   ],
 );

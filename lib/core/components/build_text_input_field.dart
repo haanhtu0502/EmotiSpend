@@ -22,6 +22,7 @@ class BuildTextInputField extends StatelessWidget {
     this.textStyle,
     this.textAlign,
     this.filledColor,
+    this.maxLine,
   });
 
   final TextEditingController controller;
@@ -41,6 +42,7 @@ class BuildTextInputField extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
   final Color? filledColor;
+  final int? maxLine;
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class BuildTextInputField extends StatelessWidget {
         ],
         TextFormField(
           style: textStyle,
+          maxLines: maxLine,
           textAlign: textAlign ?? TextAlign.start,
           obscureText: isPassword,
           controller: controller,
