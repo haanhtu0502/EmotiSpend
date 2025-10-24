@@ -71,7 +71,7 @@ class _BuildDatePickerState extends State<BuildDatePicker> {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: const Color(0xFFFAFAFA),
+              color: const Color.fromARGB(255, 247, 243, 245),
             ),
             child: Row(
               children: [
