@@ -1,24 +1,24 @@
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
-import 'package:emoti_spend/mvvm/data/enum/jar.dart';
+import 'package:emoti_spend/mvvm/data/enum/income_source.dart';
 import 'package:flutter/material.dart';
 
-class JarSelectItem extends StatefulWidget {
-  const JarSelectItem({
+class IncomeSourceSelectItem extends StatefulWidget {
+  const IncomeSourceSelectItem({
     super.key,
     required this.item,
     this.isSelected = false,
     required this.onSelect,
   });
 
-  final Jar item;
+  final IncomeSource item;
   final bool isSelected;
-  final void Function(Jar value) onSelect;
+  final void Function(IncomeSource value) onSelect;
 
   @override
-  State<JarSelectItem> createState() => _JarSelectItemState();
+  State<IncomeSourceSelectItem> createState() => _IncomeSourceSelectItemState();
 }
 
-class _JarSelectItemState extends State<JarSelectItem> {
+class _IncomeSourceSelectItemState extends State<IncomeSourceSelectItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,7 +32,7 @@ class _JarSelectItemState extends State<JarSelectItem> {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          gradient: widget.item.toLinearGradient,
+          gradient: widget.item.toLinearGradien,
           border: widget.isSelected
               ? Border.all(
                   width: 4,
@@ -46,7 +46,7 @@ class _JarSelectItemState extends State<JarSelectItem> {
             Text(widget.item.toEmoji, style: const TextStyle(fontSize: 20)),
             const SizedBox(height: 4),
             Text(
-              widget.item.toName,
+              widget.item.toText,
               style: AppTextStyles.titleMedium.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

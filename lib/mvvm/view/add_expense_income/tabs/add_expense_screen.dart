@@ -246,7 +246,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                         ),
                       )
                       .expandIndexed(
-                        (i, e) => [e, SizedBox(width: i == 5 ? 0 : 12)],
+                        (i, e) => [e, SizedBox(width: i == 3 ? 0 : 12)],
                       ),
                 ],
               ),
