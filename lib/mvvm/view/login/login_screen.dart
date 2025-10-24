@@ -223,6 +223,7 @@ class _LoginScreenState extends State<LoginScreen> {
               textAlign: TextAlign.start,
             ),
             isRequired: true,
+            maxLine: 1,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(

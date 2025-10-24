@@ -1,6 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:emoti_spend/core/components/build_button.dart';
+import 'package:emoti_spend/core/components/build_date_picker.dart';
 import 'package:emoti_spend/core/components/build_text_input_field.dart';
+import 'package:emoti_spend/core/components/build_time_picker.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/core/extensions/context_extensions.dart';
 import 'package:emoti_spend/mvvm/data/enum/emotion.dart';
@@ -40,6 +42,11 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
         Padding(
           padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
           child: _buildSelectEmoji(context, theme),
+        ),
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+          child: _buildDateSelect(context, theme),
         ),
         const SizedBox(height: 20),
         Padding(
@@ -265,6 +272,38 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildDateSelect(BuildContext context, ColorScheme theme) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: context.shadowMd,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Thời gian",
+            style: AppTextStyles.titleLarge.copyWith(
+              color: theme.onSurface,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(child: BuildDatePicker(onPickDate: (value) {})),
+              const SizedBox(width: 12),
+              Expanded(child: BuildTimePicker(onPickTime: (value) {})),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
