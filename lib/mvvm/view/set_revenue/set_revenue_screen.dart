@@ -1,6 +1,6 @@
-import 'package:emoti_spend/core/components/animated_header.dart';
 import 'package:emoti_spend/core/components/build_button.dart';
 import 'package:emoti_spend/core/components/build_text_input_field.dart';
+import 'package:emoti_spend/core/components/static_header.dart';
 import 'package:emoti_spend/core/design_system/app_colors.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/core/extensions/double_extension.dart';
@@ -39,7 +39,7 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
       // backgroundColor: const Color.fromRGBO(255, 255, 255, 0.95),
       body: Column(
         children: [
-          AnimatedHeaderBackground(
+          StaticHeader(
             padding: const EdgeInsetsGeometry.only(
               left: 16,
               right: 16,
@@ -73,14 +73,14 @@ class _SetRevenueScreenState extends State<SetRevenueScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 12),
-                Text(
-                  "Nhập số dư của bạn, EmotiSpend sẽ tự động chia thành 6 hũ theo phương pháp quản lý tài chính thông minh",
-                  style: AppTextStyles.titleMedium.copyWith(
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
+                // const SizedBox(height: 12),
+                // Text(
+                //   "Nhập số dư của bạn, EmotiSpend sẽ tự động chia thành 6 hũ theo phương pháp quản lý tài chính thông minh",
+                //   style: AppTextStyles.titleMedium.copyWith(
+                //     color: Colors.white,
+                //   ),
+                //   textAlign: TextAlign.center,
+                // ),
               ],
             ),
           ),

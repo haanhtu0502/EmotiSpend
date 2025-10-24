@@ -1,7 +1,8 @@
-import 'package:emoti_spend/core/components/animated_header.dart';
 import 'package:emoti_spend/core/components/build_tab_bar.dart';
+import 'package:emoti_spend/core/components/static_header.dart';
 import 'package:emoti_spend/core/design_system/app_text_style.dart';
 import 'package:emoti_spend/mvvm/view/add_expense_income/tabs/add_expense_screen.dart';
+import 'package:emoti_spend/mvvm/view/add_expense_income/tabs/add_income_screen.dart';
 import 'package:flutter/material.dart';
 
 class AddExpenseIncomeWrapper extends StatefulWidget {
@@ -20,7 +21,7 @@ class _AddExpenseIncomeWrapperState extends State<AddExpenseIncomeWrapper> {
     return Scaffold(
       body: Column(
         children: [
-          AnimatedHeaderBackground(
+          StaticHeader(
             padding: const EdgeInsetsGeometry.only(
               left: 16,
               right: 16,
@@ -72,7 +73,7 @@ class _AddExpenseIncomeWrapperState extends State<AddExpenseIncomeWrapper> {
                   const SizedBox(height: 24),
                   switch (_currentIndex) {
                     0 => const AddExpenseScreen(),
-                    1 => const AddExpenseScreen(),
+                    1 => const AddIncomeScreen(),
                     _ => const SizedBox(),
                   },
                 ],
